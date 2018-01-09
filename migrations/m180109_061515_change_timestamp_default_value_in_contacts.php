@@ -14,8 +14,7 @@ class m180109_061515_change_timestamp_default_value_in_contacts extends Migratio
     public function safeUp()
     {
         $this->dropColumn('contacts', 'updated_at');
-//        $this->addColumn('contacts', 'updated_at', $this->timestamp()->defaultValue('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
-        $this->addColumn('contacts', 'updated_at', Schema::TYPE_TIMESTAMP . " DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
+        $this->addColumn('contacts', 'updated_at', $this->timestamp()->notNull()->defaultExpression('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
     }
 
     /**
