@@ -11,6 +11,7 @@ class m180109_061515_change_timestamp_default_value_in_contacts extends Migratio
     /**
      * @inheritdoc
      */
+    // TEST PULL REQUEST
     public function safeUp()
     {
         $this->dropColumn('contacts', 'updated_at');
